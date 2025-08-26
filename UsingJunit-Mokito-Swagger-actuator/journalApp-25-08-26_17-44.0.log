@@ -1,0 +1,4 @@
+25-08-26 17:44:00.447 [http-nio-9097-exec-5] INFO  c.U.M.S.a.C.StudentController - Fetching student with roll number: 3 
+25-08-26 17:44:00.469 [http-nio-9097-exec-5] INFO  c.U.M.S.a.Service.StudentService - Fetching student with roll number: 3 
+25-08-26 17:44:00.534 [http-nio-9097-exec-5] WARN  c.U.M.S.a.Service.StudentService - No student found with roll number: 3 
+25-08-26 17:44:00.536 [http-nio-9097-exec-5] WARN  c.U.M.S.a.C.StudentController - Student not found for roll number: 3 
