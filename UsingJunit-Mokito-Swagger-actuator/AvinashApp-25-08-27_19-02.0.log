@@ -1,0 +1,14 @@
+25-08-27 19:02:01.709 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration) 
+25-08-27 19:02:02.071 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default' 
+25-08-27 19:02:03.017 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning 
+25-08-27 19:02:03.135 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath. 
+25-08-27 19:02:04.841 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 13 endpoints beneath base path '/actuator' 
+25-08-27 19:02:05.270 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9097"] 
+25-08-27 19:02:05.328 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 9097 (http) with context path '/' 
+25-08-27 19:02:05.365 [main] INFO  c.U.M.Swagger.actuator.Application - Started Application in 18.389 seconds (process running for 20.034) 
+25-08-27 19:02:32.459 [http-nio-9097-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+25-08-27 19:02:32.460 [http-nio-9097-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+25-08-27 19:02:32.464 [http-nio-9097-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms 
+25-08-27 19:02:34.122 [http-nio-9097-exec-9] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 767 ms 
+25-08-27 19:02:46.934 [http-nio-9097-exec-5] INFO  c.U.M.S.a.C.StudentController - Fetching all students 
+25-08-27 19:02:46.934 [http-nio-9097-exec-5] INFO  c.U.M.S.a.Service.StudentService - Fetching all students 
