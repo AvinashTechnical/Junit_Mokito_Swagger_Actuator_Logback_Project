@@ -1,0 +1,187 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > StudentService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.UsingJunit.Mokito.Swagger.actuator.Service</a>
+</div>
+
+<h1>Coverage Summary for Class: StudentService (com.UsingJunit.Mokito.Swagger.actuator.Service)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">StudentService</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    22.2%
+  </span>
+  <span class="absValue">
+    (2/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    5.9%
+  </span>
+  <span class="absValue">
+    (2/34)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.UsingJunit.Mokito.Swagger.actuator.Service;
+&nbsp;
+&nbsp;import com.UsingJunit.Mokito.Swagger.actuator.Enitiy.Student;
+&nbsp;import com.UsingJunit.Mokito.Swagger.actuator.Repository.StudentRepository;
+&nbsp;import lombok.extern.slf4j.Slf4j;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.stereotype.Service;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Optional;
+&nbsp;
+<b class="fc">&nbsp;@Slf4j</b>
+&nbsp;@Service
+<b class="fc">&nbsp;public class StudentService {</b>
+&nbsp;
+&nbsp;    @Autowired
+&nbsp;    private StudentRepository studentRepository;
+&nbsp;
+&nbsp;    // Create student service
+&nbsp;    public Student createStudent(Student student) {
+<b class="nc">&nbsp;        log.info(&quot;Saving new student: {}&quot;, student);</b>
+<b class="nc">&nbsp;        Student savedStudent = studentRepository.save(student);</b>
+<b class="nc">&nbsp;        log.debug(&quot;Student saved: {}&quot;, savedStudent);</b>
+<b class="nc">&nbsp;        return savedStudent;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public List&lt;Student&gt; getAllStudent() {
+<b class="nc">&nbsp;        log.info(&quot;Fetching all students&quot;);</b>
+<b class="nc">&nbsp;        List&lt;Student&gt; students = studentRepository.findAll();</b>
+<b class="nc">&nbsp;        log.debug(&quot;Total students fetched: {}&quot;, students.size());</b>
+<b class="nc">&nbsp;        return students;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Find student by roll number
+&nbsp;    public Optional&lt;Student&gt; getStudentByRollNumber(Long rollNumber) {
+<b class="nc">&nbsp;        log.info(&quot;Fetching student with roll number: {}&quot;, rollNumber);</b>
+<b class="nc">&nbsp;        Optional&lt;Student&gt; student = studentRepository.findById(rollNumber);</b>
+<b class="nc">&nbsp;        if (student.isPresent()) {</b>
+<b class="nc">&nbsp;            log.debug(&quot;Student found: {}&quot;, student.get());</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;            log.warn(&quot;No student found with roll number: {}&quot;, rollNumber);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return student;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Update student by roll number
+&nbsp;    public Student updateStudent(Long rollNumber, Student updatedStudent) {
+<b class="nc">&nbsp;        log.info(&quot;Updating student with roll number: {}&quot;, rollNumber);</b>
+<b class="nc">&nbsp;        return studentRepository.findById(rollNumber).map(existing -&gt; {</b>
+<b class="nc">&nbsp;            log.debug(&quot;Existing student: {}&quot;, existing);</b>
+<b class="nc">&nbsp;            existing.setName(updatedStudent.getName());</b>
+<b class="nc">&nbsp;            existing.setDob(updatedStudent.getDob());</b>
+<b class="nc">&nbsp;            existing.setCity(updatedStudent.getCity());</b>
+<b class="nc">&nbsp;            existing.setDistrict(updatedStudent.getDistrict());</b>
+<b class="nc">&nbsp;            existing.setSection(updatedStudent.getSection());</b>
+<b class="nc">&nbsp;            existing.setMarks(updatedStudent.getMarks());</b>
+<b class="nc">&nbsp;            Student saved = studentRepository.save(existing);</b>
+<b class="nc">&nbsp;            log.debug(&quot;Updated student: {}&quot;, saved);</b>
+<b class="nc">&nbsp;            return saved;</b>
+<b class="nc">&nbsp;        }).orElseThrow(() -&gt; {</b>
+<b class="nc">&nbsp;            log.error(&quot;Student with roll number {} not found for update&quot;, rollNumber);</b>
+<b class="nc">&nbsp;            return new RuntimeException(&quot;Student not found&quot;);</b>
+&nbsp;        });
+&nbsp;    }
+&nbsp;
+&nbsp;    public void deleteStudent(Long rollNumber) {
+<b class="nc">&nbsp;        log.info(&quot;Deleting student with roll number: {}&quot;, rollNumber);</b>
+<b class="nc">&nbsp;        studentRepository.deleteById(rollNumber);</b>
+<b class="nc">&nbsp;        log.debug(&quot;Student with roll number {} deleted&quot;, rollNumber);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-08-28 17:41</div>
+</div>
+</body>
+</html>

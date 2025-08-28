@@ -1,0 +1,4 @@
+25-08-28 18:29:53.746 [main] INFO  c.U.M.S.a.Service.StudentServiceTest - Starting StudentServiceTest using Java 21.0.2 with PID 11096 (started by HP in C:\Users\HP\Desktop\unit\Junit_Mokito_Swagger_Actuator_Logback_Project\UsingJunit-Mokito-Swagger-actuator) 
+25-08-28 18:29:53.761 [main] INFO  c.U.M.S.a.Service.StudentServiceTest - The following 1 profile is active: "dev" 
+25-08-28 18:29:57.272 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+25-08-28 18:29:57.413 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 123 ms. Found 1 JPA repository interface. 
